@@ -1,6 +1,8 @@
 // lib/data.ts — v2 (violationsByRegulation 11개 규제 확장)
 // 나머지 데이터(suppliers, supplyEdges, batches, dppRecords, productInstances, kpis)는 기존 그대로 유지
 
+export type SupplierStatus = 'verified' | 'pending' | 'review' | 'violation';
+
 export type Tier = 1 | 2 | 3 | 4 | 5;
 
 export interface Supplier {
