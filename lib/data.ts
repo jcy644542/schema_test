@@ -290,6 +290,48 @@ export interface AuditEntry {
   citations?: string[];
 }
 
+export const sampleAuditTrail: AuditEntry[] = [
+  {
+    step: 1,
+    timestamp: '2026-05-14 10:00:01',
+    nodeType: 'agent',
+    nodeName: '지혜 (Supervisor)',
+    model: 'GPT-4o',
+    promptVersion: 'v1.2.4',
+    durationMs: 450,
+    inputHash: 'sha256:e3b0c442...',
+    outputHash: 'sha256:8f492a31...',
+    decision: '배터리 배치 검증 프로세스 개시 및 에이전트 할당 완료',
+    citations: ['Reg-Coord-01']
+  },
+  {
+    step: 2,
+    timestamp: '2026-05-14 10:00:15',
+    nodeType: 'agent',
+    nodeName: '은진 (Gateway)',
+    model: 'Claude-3.5-Sonnet',
+    promptVersion: 'v2.1.0',
+    durationMs: 1200,
+    inputHash: 'sha256:8f492a31...',
+    outputHash: 'sha256:ac2310f2...',
+    decision: '공급망 원본 문서에서 니켈(15.2%), 리튬(12.0%) 성분 데이터 추출 성공',
+    citations: ['DPP-Spec-2026']
+  },
+  {
+    step: 3,
+    timestamp: '2026-05-14 10:01:05',
+    nodeType: 'agent',
+    nodeName: '영수 (Geo Audit)',
+    model: 'GPT-4o-mini',
+    promptVersion: 'v1.0.2',
+    durationMs: 820,
+    inputHash: 'sha256:ac2310f2...',
+    outputHash: 'sha256:550e8400...',
+    decision: '광산 좌표 분석 결과, 규제 지역(UFLPA) 외부 지역으로 판정됨',
+    citations: ['UFLPA-Boundary-Data']
+  }
+];
+
 export const auditTrail: AuditEntry[] = [
   { step: 1, timestamp: '2026-05-14 09:12:03.124', nodeType: 'agent', nodeName: 'Supervisor',   model: 'opus-4',   promptVersion: 'v2.1.4', durationMs: 847,  inputHash: '0xf623...5b41', outputHash: '0x2a14...c823', decision: 'route_to_extraction' },
   { step: 2, timestamp: '2026-05-14 09:12:04.812', nodeType: 'tool',  nodeName: 'parse_pdf',                                               durationMs: 1623, inputHash: '0x2a14...c823', outputHash: '0x8b92...4d11' },
